@@ -1,0 +1,138 @@
+@font-face {
+    font-family: 'GroovyFont';
+    src: url('/assets/font/SuperWoobly.ttf') 
+}
+
+@font-face {
+    font-family: 'BittersMilk';
+    src: url('/assets/font/Bittermilk.ttf') 
+}
+
+body {
+    margin: 0;
+}
+
+header {
+    background-image: url(/assets/groovy_backgroud.jpg);
+    background-size: cover;
+    padding: 2.2em 4em;
+}
+
+h1 {
+    margin: 0;
+    font-size: 4em;
+    font-family: 'GroovyFont';
+    color: #0c0c0c;
+}
+
+h2 {
+    margin: 10px;
+    font-size: 1.3em;
+    font-family: 'BittersMilk';
+    color: #252525;
+}
+
+.container {
+    display: flex;
+    justify-content: left;
+    align-items: center;
+    border-bottom: 1px solid rgb(223, 223, 223);
+    margin: 0px 4em;
+    margin-top: 5em;
+    padding-bottom: 1.7em;
+}
+
+.item-name {
+    font-size: 2em;
+    font-family: 'GroovyFont';
+    color: #0c0c0c;
+}
+
+.ingredients {
+    font-size: 1.2em;
+    font-family: 'BittersMilk';
+    color: #494949;
+}
+
+.price {
+    font-size: 1.2em;
+    font-family: 'BittersMilk';
+    color: #252525;
+}
+
+.plus-icon {
+    color: #252525;
+    border: 1px solid #252525;
+    border-radius: 100px;
+    padding: .9em 1.2em;
+    margin:  0 0 0 auto;
+    cursor: pointer;
+    user-select: none;
+}
+
+.plus-icon:hover {
+    background-color: #e0e0e0;
+}
+
+.order-box {
+    margin: 0px 4em;
+}
+.order-box h2 {
+    text-align: center;
+    margin-top: 25px;
+}
+
+.order-box-container {
+    display: flex;
+    flex-direction: row;
+    align-items: left;
+}
+
+.order-box-container h3 {
+    font-family: 'BittersMilk';
+    font-weight: 100;
+    margin-top: .3em;
+}
+
+.order-box-container h4 {
+    font-family: 'BittersMilk';
+    font-size: 1.2em;
+    font-weight: 100;
+    margin-top: .8em;
+}
+
+.total-price {
+    margin: auto 5px auto auto;
+}
+
+.total-border {
+    border-top: 2px solid #252525;
+    margin-bottom: 0;
+}
+
+.bnt-container {
+    display: flex;
+    justify-content: center;
+}
+
+.bnt {
+    font-family: 'BittersMilk';
+    background-color: #252525;
+    color: rgb(255, 255, 255);
+    font-size: 1.5em;
+    width: 80%;
+    padding: .2em 0;
+    margin-bottom: 2.2em;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+.bnt:hover {
+    background-color: #fd9534;
+    color: #252525;
+}
+
+.disabled {
+    display: none;
+}
