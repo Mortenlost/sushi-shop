@@ -1,9 +1,13 @@
 import { menuArray } from "./data.js"
 
 const payButton = document.getElementById("pay-button")
+const cardForm = document.getElementById("card-form")
+const orderBox = document.getElementById("order-box")
+const name = document.getElementById("name")
+
 let cards = ""
 let prices = []
-
+//todo: remove the old item when orther is on the wat goes on and the card/name
 // Function to render all the items/foods
 function getHTML(){
      menuArray.forEach((x) => {
@@ -28,6 +32,14 @@ payButton.addEventListener('click', () =>{
     document.getElementById('card-form').style.display = "flex"
 })
 
+//function for getting the "on its way" display 
+cardForm.addEventListener('submit', (e) =>{
+    e.preventDefault()
+    document.getElementById("holder-on-way").innerText = `Thanks, ${name.value} Your order is on its way!`
+    document.getElementById('card-form').style.display = "none"
+    orderBox.classList.add('disabled')
+    document.getElementById('way-display').style.display = "flex"
+})
 // The function to render the items in the order box and display sum
 document.addEventListener('click', function(e){
 
@@ -35,7 +47,7 @@ document.addEventListener('click', function(e){
     let selectedItem = menuArray.filter(item => item.id == itemId)
 
     if(e.target.dataset.add){
-        const orderBox = document.getElementById("order-box")
+        document.getElementById('way-display').style.display = "none"
         orderBox.classList.remove("disabled")
     }
 

@@ -130,7 +130,7 @@ h2 {
 }
 
 .bnt:hover {
-    background-color: #fd9534;
+    background-color: #fd9635;
     color: #252525;
 }
 
@@ -162,9 +162,18 @@ h2 {
     font-family: 'BittersMilk';
     font-size: 1.7em;
     font-weight: 100;
+    margin-top: 0;
 }
 
 .form-inp{
     padding: .7em 2em;
     margin-bottom: 0.7em;
+}
+
+.way-display {
+    display: none;
+    font-family: 'GroovyFont';
+    align-items: center;
+    justify-content: center;
+    background: rgb(253, 150, 53, 0.7);
 }
