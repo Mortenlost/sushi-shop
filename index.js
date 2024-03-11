@@ -23,9 +23,9 @@ function getHTML(){
 
 getHTML()
 
-//To-do Pop up the pay forms
+//The pay button pop-up
 payButton.addEventListener('click', () =>{
-    
+    document.getElementById('card-form').style.display = "flex"
 })
 
 // The function to render the items in the order box and display sum

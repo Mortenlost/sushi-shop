@@ -8,6 +8,7 @@
     src: url('/assets/font/Bittermilk.ttf') 
 }
 
+
 body {
     margin: 0;
 }
@@ -15,7 +16,7 @@ body {
 header {
     background-image: url(/assets/groovy_backgroud.jpg);
     background-size: cover;
-    padding: 2.2em 4em;
+    padding: 2.2em 4em; 
 }
 
 h1 {
@@ -135,4 +136,35 @@ h2 {
 
 .disabled {
     display: none;
+}
+
+.pay-form {
+    display: none;
+    flex-direction: column;
+    justify-content: center; 
+    align-items: center; 
+    position: fixed;
+    height: 35vh;
+    width: 15em;
+    padding: 1em;
+    left: 50%; 
+    top: 50%;
+    transform: translate(-50%, -50%); 
+    background: #fff;
+    box-shadow: 1px 1px 30px rgba(0, 0, 0, 0.1);
+}
+
+.form-bnt{
+    margin: 0;
+}
+
+.form-text{
+    font-family: 'BittersMilk';
+    font-size: 1.7em;
+    font-weight: 100;
+}
+
+.form-inp{
+    padding: .7em 2em;
+    margin-bottom: 0.7em;
 }
