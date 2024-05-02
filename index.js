@@ -4,10 +4,13 @@ const payButton = document.getElementById("pay-button")
 const cardForm = document.getElementById("card-form")
 const orderBox = document.getElementById("order-box")
 const name = document.getElementById("name")
+const onItsWay = document.getElementById('way-display')
 
 let cards = ""
 let prices = []
-//todo: remove the old item when orther is on the wat goes on and the card/name
+
+//todo: add a remove button for each item in order
+
 // Function to render all the items/foods
 function getHTML(){
      menuArray.forEach((x) => {
@@ -32,14 +35,31 @@ payButton.addEventListener('click', () =>{
     document.getElementById('card-form').style.display = "flex"
 })
 
-//function for getting the "on its way" display 
+
+//Function for getting the "on its way" display 
 cardForm.addEventListener('submit', (e) =>{
     e.preventDefault()
     document.getElementById("holder-on-way").innerText = `Thanks, ${name.value} Your order is on its way!`
-    document.getElementById('card-form').style.display = "none"
+    cardForm.style.display = "none"
     orderBox.classList.add('disabled')
-    document.getElementById('way-display').style.display = "flex"
+    onItsWay.style.display = "flex"
+
+    clearShopingList()
+    cardForm.reset()
 })
+
+
+
+
+function clearShopingList(){
+    document.getElementById('order-box-container').innerHTML = ""
+    document.getElementById("order-box-price").innerHTML = `<h4>Total price: </h4>
+                                                            <h4 class="total-price">$0</h4>`
+    onItsWay.style.display = "flex"
+    orderBox.classList.add("disabled")
+    prices = []
+}
+
 // The function to render the items in the order box and display sum
 document.addEventListener('click', function(e){
 
@@ -47,7 +67,7 @@ document.addEventListener('click', function(e){
     let selectedItem = menuArray.filter(item => item.id == itemId)
 
     if(e.target.dataset.add){
-        document.getElementById('way-display').style.display = "none"
+        onItsWay.style.display = "none"
         orderBox.classList.remove("disabled")
     }
 
@@ -70,6 +90,8 @@ document.addEventListener('click', function(e){
     }
     }
 )
+
+
 
 
 
