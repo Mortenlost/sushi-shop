@@ -81,9 +81,12 @@ document.addEventListener('click', function(e){
     if (e.target.dataset.add){
         //Render the orders
         if (selectedItem) {
-            let item = `<div class="order-box-container">
+            let item = `<div class="order-box-container" id="main-order-container">
                             <h3>${selectedItem[0].name}</h3>
-                            <h3 class="total-price">$${selectedItem[0].price}</h3>
+                            <div class="order-box-container ">
+                                <h3 class="total-price">$${selectedItem[0].price}</h3>
+                                <button class="remove-btn">X</button>
+                            </div>
                         </div>`;
             document.getElementById('order-box-container').innerHTML += item
         }
@@ -91,6 +94,12 @@ document.addEventListener('click', function(e){
     }
 )
 
+
+document.getElementById('order-box-container').addEventListener('click', (event) => {
+    if (event.target.classList.contains('remove-btn')) {
+        event.target.closest('#main-order-container').remove();
+    }
+});
 
 
 
