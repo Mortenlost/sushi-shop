@@ -1,22 +1,26 @@
 import { menuArray } from "./data.js"
 
+
 const payButton = document.getElementById("pay-button")
 const cardForm = document.getElementById("card-form")
 const orderBox = document.getElementById("order-box")
 const name = document.getElementById("name")
 const onItsWay = document.getElementById('way-display')
 
+
 let cards = ""
 let prices = []
+let totalPrice = 0
 
 //todo: add a remove button for each item in order
 
 // Function to render all the items/foods
 function getHTML(){
      menuArray.forEach((x) => {
+        console.log(x)
         cards += 
         `<div class="container">
-            <img id="${x.id}" src="${x.img}" alt="">
+            <img class="itemImg"id="${x.id}" src="${x.img}" alt="">
             <div>
                 <h1 class="item-name">${x.name}</h1>
                 <p class="ingredients">${x.ingredients}</p>
@@ -48,9 +52,6 @@ cardForm.addEventListener('submit', (e) =>{
     cardForm.reset()
 })
 
-
-
-
 function clearShopingList(){
     document.getElementById('order-box-container').innerHTML = ""
     document.getElementById("order-box-price").innerHTML = `<h4>Total price: </h4>
@@ -73,7 +74,7 @@ document.addEventListener('click', function(e){
 
     if(e.target.dataset.add){
         prices.push(parseInt(selectedItem[0].price))
-        let totalPrice = prices.reduce((acc, price) => acc + price, 0);
+        totalPrice = prices.reduce((acc, price) => acc + price, 0);
         document.getElementById("order-box-price").innerHTML = `<h4>Total price: </h4>
                                                                 <h4 class="total-price">$${totalPrice}</h4>`
     }
@@ -98,6 +99,13 @@ document.addEventListener('click', function(e){
 document.getElementById('order-box-container').addEventListener('click', (event) => {
     if (event.target.classList.contains('remove-btn')) {
         event.target.closest('#main-order-container').remove();
+        
+    
+
+        totalPrice = prices.reduce((acc, price) => acc - price, 0)
+        document.getElementById("order-box-price").innerHTML = `<h4>Total price: </h4>
+                                                                <h4 class="total-price">$${totalPrice}</h4>`
+
     }
 });
 

@@ -201,3 +201,15 @@ h2 {
     background-color: #fd9635;
     color: #252525;
 }
+
+@media (max-width: 768px) {
+    .itemImg{
+        width: 40%;
+        
+    }
+
+    .container {
+        margin: 0 0em 0 0em;
+    }
+    
+}
