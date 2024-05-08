@@ -12,12 +12,12 @@ let cards = ""
 let prices = []
 let totalPrice = 0
 
-//todo: add a remove button for each item in order
+
 
 // Function to render all the items/foods
 function getHTML(){
      menuArray.forEach((x) => {
-        console.log(x)
+
         cards += 
         `<div class="container">
             <img class="itemImg"id="${x.id}" src="${x.img}" alt="">
@@ -63,7 +63,7 @@ function clearShopingList(){
 
 // The function to render the items in the order box and display sum
 document.addEventListener('click', function(e){
-
+    
     let itemId = e.target.dataset.add
     let selectedItem = menuArray.filter(item => item.id == itemId)
 
@@ -72,21 +72,31 @@ document.addEventListener('click', function(e){
         orderBox.classList.remove("disabled")
     }
 
+    if(itemId == 0){
+            totalPrice += 10
+        } else if(itemId == 1){
+            totalPrice += 5
+        } else if(itemId == 2){
+            totalPrice += 12
+    }
+
     if(e.target.dataset.add){
         prices.push(parseInt(selectedItem[0].price))
-        totalPrice = prices.reduce((acc, price) => acc + price, 0);
+    
         document.getElementById("order-box-price").innerHTML = `<h4>Total price: </h4>
                                                                 <h4 class="total-price">$${totalPrice}</h4>`
     }
+
+
 
     if (e.target.dataset.add){
         //Render the orders
         if (selectedItem) {
             let item = `<div class="order-box-container" id="main-order-container">
                             <h3>${selectedItem[0].name}</h3>
-                            <div class="order-box-container ">
+                            <div class="order-box-container id="${selectedItem[0].id}">
                                 <h3 class="total-price">$${selectedItem[0].price}</h3>
-                                <button class="remove-btn">X</button>
+                                <button id="${selectedItem[0].id}" class="remove-btn">X</button>
                             </div>
                         </div>`;
             document.getElementById('order-box-container').innerHTML += item
@@ -100,14 +110,19 @@ document.getElementById('order-box-container').addEventListener('click', (event)
     if (event.target.classList.contains('remove-btn')) {
         event.target.closest('#main-order-container').remove();
         
-    
-
-        totalPrice = prices.reduce((acc, price) => acc - price, 0)
+        if(event.target.id == 0){
+                totalPrice -= 10
+            } else if(event.target.id == 1){
+                totalPrice -= 5
+            } else if(event.target.id == 2){
+                totalPrice -= 12
+        }
+        
         document.getElementById("order-box-price").innerHTML = `<h4>Total price: </h4>
-                                                                <h4 class="total-price">$${totalPrice}</h4>`
+                                                                <h4 class="total-price">$${totalPrice}</h4>`}
+        
 
-    }
-});
+    })
 
 
 
